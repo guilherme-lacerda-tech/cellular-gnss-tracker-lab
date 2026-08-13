@@ -1,0 +1,9 @@
+{"detail": "BOOT received OK", "event": "OK", "next_state": "MODEM_INIT", "state": "BOOT", "timestamp": "2026-08-13T12:00:00Z"}
+{"detail": "MODEM_INIT received OK", "event": "OK", "next_state": "SIM_CHECK", "state": "MODEM_INIT", "timestamp": "2026-08-13T12:00:01Z"}
+{"detail": "SIM_CHECK received OK", "event": "OK", "next_state": "NETWORK_REGISTRATION", "state": "SIM_CHECK", "timestamp": "2026-08-13T12:00:02Z"}
+{"detail": "NETWORK_REGISTRATION received OK", "event": "OK", "next_state": "DATA_SESSION", "state": "NETWORK_REGISTRATION", "timestamp": "2026-08-13T12:00:03Z"}
+{"detail": "DATA_SESSION received OK", "event": "OK", "next_state": "GNSS", "state": "DATA_SESSION", "timestamp": "2026-08-13T12:00:04Z"}
+{"detail": "GNSS received GNSS_NO_FIX", "event": "GNSS_NO_FIX", "next_state": "GNSS", "state": "GNSS", "timestamp": "2026-08-13T12:00:05Z"}
+{"detail": "GNSS received OK", "event": "OK", "next_state": "POSITION", "state": "GNSS", "timestamp": "2026-08-13T12:00:06Z"}
+{"detail": "POSITION received OK", "event": "OK", "next_state": "TRANSMISSION", "state": "POSITION", "timestamp": "2026-08-13T12:00:07Z"}
+{"detail": "TRANSMISSION received OK", "event": "OK", "next_state": "SLEEP_WAIT", "state": "TRANSMISSION", "timestamp": "2026-08-13T12:00:08Z"}
