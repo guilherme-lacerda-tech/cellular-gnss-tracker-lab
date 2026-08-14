@@ -19,6 +19,7 @@ def test_required_scenarios_exist() -> None:
         "modem_timeout",
         "network_failure",
         "normal_operation",
+        "registration_denied",
         "recovery",
         "transmission_failure",
     }
@@ -35,6 +36,13 @@ def test_network_failure_resets_modem_and_recovers() -> None:
     context = run_scenario("network_failure")
     assert context.modem_resets == 1
     assert context.watchdog_kicks == 1
+    assert context.transmissions == 1
+
+
+def test_registration_denied_uses_recovery_path() -> None:
+    context = run_scenario("registration_denied")
+    assert any(row["event"] == "REGISTRATION_DENIED" for row in context.history)
+    assert context.modem_resets == 1
     assert context.transmissions == 1
 
 
