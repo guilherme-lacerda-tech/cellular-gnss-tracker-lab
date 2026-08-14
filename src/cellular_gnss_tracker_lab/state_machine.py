@@ -22,6 +22,7 @@ class Event(str, Enum):
     OK = "OK"
     TIMEOUT = "TIMEOUT"
     SIM_MISSING = "SIM_MISSING"
+    REGISTRATION_DENIED = "REGISTRATION_DENIED"
     NETWORK_LOSS = "NETWORK_LOSS"
     GNSS_NO_FIX = "GNSS_NO_FIX"
     TRANSMISSION_FAILURE = "TRANSMISSION_FAILURE"
@@ -87,10 +88,16 @@ def transition(state: TrackerState, event: Event, context: TrackerContext) -> Tr
         context.retries = 0
         return NEXT_ON_OK.get(state, TrackerState.SLEEP_WAIT)
 
-    if event in {Event.TIMEOUT, Event.NETWORK_LOSS, Event.GNSS_NO_FIX, Event.TRANSMISSION_FAILURE}:
+    if event in {
+        Event.TIMEOUT,
+        Event.REGISTRATION_DENIED,
+        Event.NETWORK_LOSS,
+        Event.GNSS_NO_FIX,
+        Event.TRANSMISSION_FAILURE,
+    }:
         context.retries += 1
         context.watchdog_kicks += 1
-        if event in {Event.TIMEOUT, Event.NETWORK_LOSS}:
+        if event in {Event.TIMEOUT, Event.REGISTRATION_DENIED, Event.NETWORK_LOSS}:
             context.modem_resets += 1
         if context.retries > context.config.max_retries:
             return TrackerState.FAILED
@@ -130,6 +137,19 @@ SCENARIO_EVENTS: dict[str, list[Event]] = {
         Event.OK,
         Event.OK,
         Event.NETWORK_LOSS,
+        Event.OK,
+        Event.OK,
+        Event.OK,
+        Event.OK,
+        Event.OK,
+        Event.OK,
+        Event.OK,
+    ],
+    "registration_denied": [
+        Event.OK,
+        Event.OK,
+        Event.OK,
+        Event.REGISTRATION_DENIED,
         Event.OK,
         Event.OK,
         Event.OK,

@@ -38,7 +38,13 @@ def analyze_events(events: list[LogEvent]) -> dict[str, object]:
     failures: list[str] = []
     for event in events:
         state_counts[event.state] = state_counts.get(event.state, 0) + 1
-        if event.event in {"TIMEOUT", "NETWORK_LOSS", "GNSS_NO_FIX", "TRANSMISSION_FAILURE"}:
+        if event.event in {
+            "TIMEOUT",
+            "REGISTRATION_DENIED",
+            "NETWORK_LOSS",
+            "GNSS_NO_FIX",
+            "TRANSMISSION_FAILURE",
+        }:
             failures.append(event.event)
     return {
         "event_count": len(events),

@@ -32,4 +32,5 @@ def test_parse_gnss_position() -> None:
 def test_parse_missing_gnss_position() -> None:
     assert parse_gnss_position("OK") is None
     assert parse_gnss_position("+QGPSLOC: bad") is None
+    assert parse_gnss_position("+QGPSLOC: 120000.0,not-a-lat,-46.6333,1") is None
 

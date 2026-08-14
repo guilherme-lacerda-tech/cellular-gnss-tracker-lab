@@ -31,9 +31,12 @@ def parse_gnss_position(raw: str) -> tuple[float, float, int] | None:
         parts = [part.strip() for part in payload.split(",")]
         if len(parts) < 4:
             return None
-        latitude = float(parts[1])
-        longitude = float(parts[2])
-        quality = int(parts[3])
+        try:
+            latitude = float(parts[1])
+            longitude = float(parts[2])
+            quality = int(parts[3])
+        except ValueError:
+            return None
         return latitude, longitude, quality
     return None
 

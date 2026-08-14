@@ -1,6 +1,14 @@
 # Cellular GNSS Tracker Lab
 
+[![CI](https://github.com/guilherme-lacerda-tech/cellular-gnss-tracker-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/guilherme-lacerda-tech/cellular-gnss-tracker-lab/actions/workflows/ci.yml)
+[![Firmware](https://github.com/guilherme-lacerda-tech/cellular-gnss-tracker-lab/actions/workflows/firmware.yml/badge.svg)](https://github.com/guilherme-lacerda-tech/cellular-gnss-tracker-lab/actions/workflows/firmware.yml)
+[![Security](https://github.com/guilherme-lacerda-tech/cellular-gnss-tracker-lab/actions/workflows/security.yml/badge.svg)](https://github.com/guilherme-lacerda-tech/cellular-gnss-tracker-lab/actions/workflows/security.yml)
+[![Release](https://img.shields.io/github/v/release/guilherme-lacerda-tech/cellular-gnss-tracker-lab)](https://github.com/guilherme-lacerda-tech/cellular-gnss-tracker-lab/releases)
+[![License](https://img.shields.io/github/license/guilherme-lacerda-tech/cellular-gnss-tracker-lab)](LICENSE)
+
 ESP32 cellular/GNSS engineering lab with a public state machine, modem AT-command concepts, resilience behavior, synthetic logs and Python tooling.
+
+Portuguese documentation: [README.pt-BR.md](README.pt-BR.md), [docs/hardware-validation.md](docs/hardware-validation.md), [docs/at-command-flow.md](docs/at-command-flow.md) and [docs/state-machine.md](docs/state-machine.md).
 
 ## Why
 
@@ -119,8 +127,13 @@ This repository uses synthetic data only. Do not commit real APNs, servers, devi
 ## Limitations
 
 - Simulation/software validation completed; hardware validation pending.
-- Firmware is a public skeleton and is not compiled in CI because the embedded toolchain is not required in this environment.
+- Firmware skeleton compile is validated when the firmware workflow is enabled and green; physical hardware validation is still pending.
 - Network and GNSS behavior is modeled, not physically measured.
+
+## Related Projects
+
+- [esp32-iot-integration-lab](https://github.com/guilherme-lacerda-tech/esp32-iot-integration-lab): related broader ESP32 integration foundation.
+- This repository is the deeper cellular/GNSS/state-machine lab.
 
 ## Roadmap
 
