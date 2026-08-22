@@ -20,6 +20,7 @@ Cellular trackers fail in messy ways: modem timeouts, SIM problems, network regi
 - Generic AT-command parsing and timeout/error handling.
 - State machine: boot, modem init, SIM check, network registration, data session, GNSS, position, transmission, sleep/wait and recovery.
 - Retry counters, modem reset modeling, watchdog kicks and exponential backoff helper.
+- Synthetic telemetry delivery analysis for duplicate packets, out-of-order packets, network loss, reconnect and recovery status.
 - Synthetic scenarios: normal operation, network failure, GNSS no fix, modem timeout, transmission failure and recovery.
 - Python CLI for simulation and JSONL log analysis.
 - CI-friendly software validation without hardware.
